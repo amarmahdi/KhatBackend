@@ -1,5 +1,5 @@
 const JWT = require('jsonwebtoken')
-const confg = require('./config')
+const config = require('./config')
 
 module.exports = (user)=>{
     const EXP_DATE = 60 * 60 * 24 * 7
