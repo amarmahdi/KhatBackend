@@ -1,5 +1,5 @@
-module.exports = {
-    port: 3000,
+export default {
+    port : 3000,
     db: {
         database: 'KhatAppDb',
         user: 'postgres',
