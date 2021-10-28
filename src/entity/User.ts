@@ -1,5 +1,6 @@
 import { Field, ObjectType } from "type-graphql";
-import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToOne, JoinColumn} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToOne, JoinColumn, ManyToMany, JoinTable} from "typeorm";
+import { Groups } from "./Groups.";
 @ObjectType()
 @Entity("Users")
 export class User extends BaseEntity {
