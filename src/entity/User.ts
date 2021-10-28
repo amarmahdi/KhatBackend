@@ -1,6 +1,5 @@
 import { Field, ObjectType } from "type-graphql";
 import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToOne, JoinColumn} from "typeorm";
-
 @ObjectType()
 @Entity("Users")
 export class User extends BaseEntity {
@@ -19,20 +18,25 @@ export class User extends BaseEntity {
     @Field()
     @Column()
     password: string;
-
-    @Field(()=>Token)
-    @OneToOne(()=>Token, token => token.id)
-    @JoinColumn()
-    token: Token;
-
 }
 
 @ObjectType()
-@Entity("Token")
-export class Token extends BaseEntity{
+@Entity("Tokens")
+export class Tokens extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
+    
+    @Field()
+    @Column()
+    userId: string;
 
+    @Field()
     @Column()
     token: string;
+}
+
+@ObjectType()
+export class LoginRespose{
+    @Field()
+    accessToken: string;
 }
