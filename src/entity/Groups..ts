@@ -1,5 +1,5 @@
 import { ObjectType, Field} from "type-graphql";
-import { BaseEntity, Column, Entity, JoinColumn, JoinTable, ManyToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 import { User } from "./User";
 
 @ObjectType()
@@ -17,9 +17,8 @@ export class Groups extends BaseEntity {
     @Column()
     type: string;
 
-    @Field()
-    @OneToOne(()=>User)
-    @JoinColumn()
+    @Field(()=>User)
+    @ManyToOne(()=>User, user => user.id)
     creator: User;
 
     @Field(()=>[User])

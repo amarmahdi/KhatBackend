@@ -10,7 +10,8 @@ const JWT = (username: string, secret: string)=>{
     return sign({username}, secret, {expiresIn: EXP_DATE})
 }
 
-const secret = 'somesecret'
+export const secret = 'somesecret'
+export const cookieToken = 'cookiesecret'
 @Resolver()
 export class UserResolver {
     // find all users
@@ -71,10 +72,10 @@ export class UserResolver {
         const token = JWT(findUser.id, secret)
         await Tokens.insert({ userId: findUser.id, token  })
 
-        const cookieToken = JWT(findUser.id, 'cookiesecret')
+        const cookieT = JWT(findUser.id, cookieToken)
 
 
-        res.cookie('KhatCookie', cookieToken, {httpOnly: true})
+        res.cookie('KhatCookie', cookieT, {httpOnly: true})
 
         return {
             accessToken: token

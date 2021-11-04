@@ -1,6 +1,6 @@
 import { Field, ObjectType } from "type-graphql";
-import {Entity, PrimaryGeneratedColumn, Column, BaseEntity, OneToOne, JoinColumn, ManyToMany, JoinTable} from "typeorm";
-import { Groups } from "./Groups.";
+import {Entity, PrimaryGeneratedColumn, Column, BaseEntity} from "typeorm";
+
 @ObjectType()
 @Entity("Users")
 export class User extends BaseEntity {
@@ -37,7 +37,7 @@ export class Tokens extends BaseEntity {
 }
 
 @ObjectType()
-export class LoginRespose{
+export class LoginRespose {
     @Field()
     accessToken: string;
 }
