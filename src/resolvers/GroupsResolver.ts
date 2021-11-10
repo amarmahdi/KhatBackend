@@ -1,5 +1,5 @@
 import { Arg, Ctx, Mutation, Query, Resolver, UseMiddleware } from "type-graphql";
-import { Groups } from "../entity/Groups.";
+import { Groups } from "../entity/Groups";
 import { MyContext } from "../MyContext";
 import { isAuth } from "../policies/isAuth";
 
